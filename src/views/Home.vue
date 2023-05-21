@@ -2,35 +2,6 @@
 <template>
 
   <div>
-    <el-form :inline="true" :model="formInline" class="demo-form-inline">
-      <el-form-item label="专业">
-        <el-input v-model="formInline.majorid" placeholder="专业"></el-input>
-      </el-form-item>
-      <el-form-item label="年级">
-        <el-select v-model="formInline.grade" placeholder="年级">
-          <el-option label="2019" value="2019"></el-option>
-          <el-option label="2020" value="2020"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
-      </el-form-item>
-    </el-form>
-
-    <el-form :inline="true" :model="formInline1" class="demo-form-inline1">
-      <el-form-item label="专业">
-        <el-input v-model="formInline1.majorid" placeholder="专业"></el-input>
-      </el-form-item>
-      <el-form-item label="毕业要求">
-        <el-select v-model="formInline1.requirements" placeholder="要求">
-          <el-option label="1" value="1"></el-option><el-option label="2" value="2"></el-option><el-option label="3" value="3"></el-option><el-option label="4" value="4"></el-option>
-          <el-option label="5" value="5"></el-option><el-option label="6" value="6"></el-option><el-option label="7" value="7"></el-option><el-option label="8" value="8"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit1">查询</el-button>
-      </el-form-item>
-    </el-form>
 
     <el-row>
       <el-col
@@ -40,13 +11,53 @@
           <el-card>
             <div>
               <h1>达成度展示</h1>
+              <el-row :gutter="5">
+                <el-col :span="10">
+
+                  <el-form :inline="true" :model="formInline"  class="demo-form-inline" >
+                    <el-form-item label="专业">
+                      <el-input v-model="formInline.majorid" placeholder="专业"></el-input>
+                    </el-form-item>
+                    <el-form-item label="年级">
+                      <el-select v-model="formInline.grade" placeholder="年级">
+                        <el-option label="2019" value="2019"></el-option>
+                        <el-option label="2020" value="2020"></el-option>
+                      </el-select>
+                    </el-form-item>
+                    <el-form-item>
+                      <el-button type="primary" @click="onSubmit">查询</el-button>
+                    </el-form-item>
+                  </el-form>
+
+                </el-col>
+                <el-col :span="14">
+
+                  <el-form :inline="true" :model="formInline1" :label-position="right" :label-width="auto" class="demo-form-inline1">
+                    <el-form-item label="专业">
+                      <el-input v-model="formInline1.majorid" placeholder="专业"></el-input>
+                    </el-form-item>
+                    <el-form-item label="毕业要求">
+                      <el-select v-model="formInline1.requirements" placeholder="要求">
+                        <el-option label="1" value="1"></el-option><el-option label="2" value="2"></el-option><el-option label="3" value="3"></el-option><el-option label="4" value="4"></el-option>
+                        <el-option label="5" value="5"></el-option><el-option label="6" value="6"></el-option><el-option label="7" value="7"></el-option><el-option label="8" value="8"></el-option>
+                      </el-select>
+                    </el-form-item>
+                    <el-form-item>
+                      <el-button type="primary" @click="onSubmit1">查询</el-button>
+                    </el-form-item>
+                  </el-form>
+
+                </el-col>
+              </el-row>
               <div id="echarts_box" style="width: 600px;height:400px;float: left;display: inline"></div>
               <div id="echarts_box2" style="width: 600px;height:400px;float: right;display: inline"></div>
             </div>
           </el-card>
-          <el-card>
-            <div id="echarts_box3" style="width: 1200px;height: 400px;float: left;display: inline"></div>
-          </el-card>
+
+<!--          <el-card>-->
+
+<!--          </el-card>-->
+
         </el-col>
       </el-row>
   </div>
@@ -59,6 +70,7 @@
 <script>
 import * as echarts from 'echarts';
 import request from "@/utils/request";
+import {left, right} from "core-js/internals/array-reduce";
 // 获取数据的api
 
 export default {
@@ -170,6 +182,8 @@ export default {
 
   },
   methods: {
+    right,
+    left,
     onSubmit() {
       console.log('专业年级查询');
       console.log(this.formInline)
@@ -201,7 +215,11 @@ export default {
         {name:  "指标1",value:  0.76},
         {name:  "指标2",value:  0.79},
         {name:  "指标3",value:  0.86},
-        {name:  "指标4",value:  0.57}
+        {name:  "指标4",value:  0.57},
+        {name:  "指标1",value:  0.76},
+        {name:  "指标2",value:  0.79},
+        {name:  "指标3",value:  0.86},
+        {name:  "指标4",value:  0.57},
       ]
       this.RenderEcharts(data)
     },
@@ -267,6 +285,12 @@ export default {
       let option1 = {
         title: {
           text: '班级毕业要求'+this.formInline1.requirements+'达成度'
+        },
+        grid:{
+          left:'1%',
+          right:'18%',
+          bottom:'1%',
+          containLabel:true
         },
         tooltip: {},
         xAxis: {
