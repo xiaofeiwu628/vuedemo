@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">达成度展示</router-link>
+      <router-link to="/">达成度查询</router-link>
       <router-link to="/about">达成度对比</router-link>
     </div>
     <router-view/>

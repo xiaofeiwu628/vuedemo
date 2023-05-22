@@ -10,7 +10,7 @@
         >
           <el-card>
             <div>
-              <h1>达成度展示</h1>
+              <h1>达成度查询</h1>
               <el-row :gutter="5">
                 <el-col :span="10">
 
