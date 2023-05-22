@@ -12,4 +12,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.prototype.$Elementui = ElementUI
 //use elementui
 Vue.use(ElementUI)
+## views文件夹里面两个可视化页面，看着贴，里面有注释
+## app.vue看着改，改了views里面的页面名，加到你的app.vue里就行
+## router链接，index.js自己配个想要的
 ##
