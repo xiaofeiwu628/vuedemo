@@ -1,4 +1,5 @@
-## main.js 是配置
+## main.js 是配置,有用的东西大概是下面这些
+```
 //引入echarts
 import echarts from 'echarts'
 //注册全局组件
@@ -11,3 +12,4 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.prototype.$Elementui = ElementUI
 //use elementui
 Vue.use(ElementUI)
+##
