@@ -1,19 +1,13 @@
-# vuedemo2
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## main.js 是配置
+//引入echarts
+import echarts from 'echarts'
+//注册全局组件
+Vue.prototype.$echarts = echarts
+//引入elementui
+import ElementUI from 'element-ui';
+//引入elementui样式
+import 'element-ui/lib/theme-chalk/index.css';
+//注册全局组件
+Vue.prototype.$Elementui = ElementUI
+//use elementui
+Vue.use(ElementUI)
